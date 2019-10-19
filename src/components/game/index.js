@@ -1,9 +1,8 @@
 import React from "react";
 import Canvas from "../canvas";
-import { observer } from "mobx-react";
-import { useController } from "../../hooks";
+import { useController } from "../../hooks/useController";
 
-export default observer(() => {
+export default () => {
   useController();
   return <Canvas />;
-});
+};
