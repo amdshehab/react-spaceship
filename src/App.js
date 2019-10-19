@@ -1,13 +1,12 @@
 import React from "react";
 import Game from "./components/game";
 import "./App.css";
+import Store from "./store";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Game />
-      </header>
+      <Game store={Store} />
     </div>
   );
 }
