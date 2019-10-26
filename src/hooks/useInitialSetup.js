@@ -8,10 +8,10 @@ export const useInitialSetup = store => {
       autorun(() => {
         const img = new Image();
         img.src = spaceShip;
-        console.log("CTX IS BEING RESERT OMG", store.ctx);
         img.onload = () => {
           store.ctx.drawImage(img, store.x, store.y, 50, 50);
         };
+        store.setSpaceShip(img);
       }),
     [] // note empty dependencies
   );

@@ -15,7 +15,6 @@ export default () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    console.log("INNER ->", ctx);
 
     localStore.setCTX(ctx);
   }, [localStore.setCTX, localStore]);
@@ -32,8 +31,6 @@ export default () => {
           border: "5px solid black"
         }}
       />
-      <h1>HELLOOOO {JSON.stringify(localStore.ctx)}</h1>
-      {/* <button onClick={() => localStore.setCTX(Math.random())}>CLICK ME</button> */}
     </div>
   ));
 };
