@@ -6,14 +6,13 @@ export const useController = () => {
   const validKeyCodes = new Set([37, 38, 39, 40]);
   const handleKeyDown = e => {
     if (validKeyCodes.has(e.keyCode)) {
-      console.log(e);
-      localStore.setController(e.code, true);
+      localStore.addKeyToStream(e.keyCode);
     }
   };
 
   const handleKeyUp = e => {
     if (validKeyCodes.has(e.keyCode)) {
-      localStore.setController(e.code, false);
+      localStore.removekeyFromStream(e.keyCode);
     }
   };
 

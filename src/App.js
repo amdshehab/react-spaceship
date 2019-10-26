@@ -9,14 +9,12 @@ function App() {
     animationId: null,
     x: 230,
     y: 300,
-    controller: {
-      ArrowUp: false,
-      ArrowDown: false,
-      ArrowRight: false,
-      ArrowLeft: false
-    },
+    keyStream: new Set(),
     ctx: null,
     spaceShip: null,
+    get isMoving() {
+      return this.keyStream.size > 0 ? true : false;
+    },
     setSpaceShip(ship) {
       this.spaceShip = ship;
     },
@@ -32,11 +30,11 @@ function App() {
     setY(y) {
       this.y = y;
     },
-    setController(key, state) {
-      this.controller = {
-        ...this.controller,
-        [key]: state
-      };
+    addKeyToStream(key) {
+      this.keyStream.add(key);
+    },
+    removekeyFromStream(key) {
+      this.keyStream.delete(key);
     },
     incrementPosition(arg) {
       if (arg === "vertical") this.y++;
