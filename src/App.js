@@ -6,8 +6,8 @@ import { StoreContext } from "./context/store";
 
 function App() {
   const store = useLocalStore(() => ({
-    x: 0,
-    y: 0,
+    x: 230,
+    y: 300,
     ctx: null,
     setCTX(context) {
       this.ctx = context;
@@ -18,6 +18,7 @@ function App() {
       if (arg === "horizontal") this.x++;
     }
   }));
+
   return (
     <div className="App">
       <StoreContext.Provider value={store}>
