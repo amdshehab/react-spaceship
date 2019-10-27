@@ -12,7 +12,7 @@ export const useController = () => {
 
   const handleKeyUp = e => {
     if (validKeyCodes.has(e.keyCode)) {
-      localStore.removekeyFromStream(e.keyCode);
+      setTimeout(() => localStore.removekeyFromStream(e.keyCode), 400);
     }
   };
 

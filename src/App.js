@@ -9,36 +9,32 @@ function App() {
     animationId: null,
     x: 230,
     y: 300,
+    xVel: 0,
+    yVel: 0,
     keyStream: new Set(),
     ctx: null,
     spaceShip: null,
+    // Getters are transformed to @computed values
+    get shipAX() {
+      return this.keyStream.has(39) || this.keyStream.has(37) ? 0.7 : 0;
+    },
+    get shipAY() {
+      return this.keyStream.has(38) || this.keyStream.has(40) ? 0.7 : 0;
+    },
     get isMoving() {
       return this.keyStream.size > 0 ? true : false;
     },
     setSpaceShip(ship) {
       this.spaceShip = ship;
     },
-    setAnimation(id) {
-      this.animationId = id;
-    },
     setCTX(context) {
       this.ctx = context;
-    },
-    setX(x) {
-      this.x = x;
-    },
-    setY(y) {
-      this.y = y;
     },
     addKeyToStream(key) {
       this.keyStream.add(key);
     },
     removekeyFromStream(key) {
       this.keyStream.delete(key);
-    },
-    incrementPosition(arg) {
-      if (arg === "vertical") this.y++;
-      if (arg === "horizontal") this.x++;
     }
   }));
 
